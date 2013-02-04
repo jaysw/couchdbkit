@@ -117,8 +117,7 @@ class DocumentSchema(object):
 
         _dynamic_properties = properties.copy()
         for attr_name, value in _dynamic_properties.iteritems():
-            if attr_name not in self._properties \
-                    and value is not None:
+            if attr_name not in self._properties:
                 if isinstance(value, p.Property):
                     value.__property_config__(self, attr_name)
                     value.__property_init__(self, value.default_value())
