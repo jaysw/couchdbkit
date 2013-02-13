@@ -51,10 +51,7 @@ setup(
 
     zip_safe = False,
 
-    install_requires = [
-        'restkit>=4.1.3',
-        'nose'
-    ],
+    install_requires = [ 'restkit>=4.2.1' ],
 
     entry_points="""
     [couchdbkit.consumers]
