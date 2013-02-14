@@ -5,8 +5,7 @@
 
 """ Meta properties """
 
-
-from ..exceptions import BadValueError 
+from ..exceptions import BadValueError
 
 from .base import DocumentSchema
 from .properties import Property
@@ -70,7 +69,7 @@ class SchemaProperty(Property):
             
         self._use_instance = use_instance
         self._schema = schema
-        
+
     def default_value(self):
         if not self._use_instance:
             if self.default:
@@ -96,15 +95,9 @@ class SchemaProperty(Property):
             raise BadValueError(
                 'Property %s must be DocumentSchema instance, not a %s' % (self.name, 
                 type(value).__name__))
-        
         return value
 
     def to_python(self, value):
-        if not self._use_instance: 
-            schema = self._schema()
-        else:
-            schema = self._schema.clone()
-
         if not self._use_instance:
             schema = self._schema
         else:
@@ -159,7 +152,7 @@ class SchemaListProperty(Property):
         
     def validate_list_schema(self, value, required=True):
         for v in value:
-             v.validate(required=required)
+            v.validate(required=required)
         return value
         
     def default_value(self):
